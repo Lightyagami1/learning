@@ -78,6 +78,7 @@ try (OutputStream os = new FileOutputStream(file);) { // use ; at end of resourc
 IntStream.range(1, 100).forEach( i -> { try { dos.writeInt(i); } catch (IOExceptipon e) {} );
 ```
 
+## GZIP file
 * to make it gzip
  - change extension by adding .gz
  - decorate the stream with 
@@ -88,3 +89,23 @@ IntStream.range(1, 100).forEach( i -> { try { dos.writeInt(i); } catch (IOExcept
 ---
 * always define streams in try 
 ---
+
+* to read gzipped file
+ + just add gzip decorator
+ 	`GZIPInputStream gzis = new GZIPInputStream(is);
+
+## ZIP archive
+* make entry 
+`ZipEntry dirEntry = new ZipEntry("bin/");`
+`zos.putNextEntry(dirEntry);`
+
+* make file entries similarly
+
+# 6. Reading and Writing Data as Object : Serializable
+* can be done by 
+ - xml
+ - json
+ - java own way, as java came 3 years before xml and 18 yrs prior to json :P
+
+* just add implements Serializable at class definition
+
